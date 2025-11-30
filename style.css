@@ -22,10 +22,11 @@ body {
   font-family: 'SmartFont', 'Helvetica Neue', sans-serif;
   background-color: var(--LightBrown);
   color: var(--LightBlack);
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
 }
 
 .container {
@@ -42,7 +43,8 @@ body {
 }
 
 .header-image {
-  width: 110%;
+  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -50,13 +52,13 @@ body {
 #calendar {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
-  max-width: 600px;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   background-color: var(--DarkBrown);
-  padding: 1rem;
+  padding: 0.5rem;
   width: 100%;
   box-sizing: border-box;
 }
