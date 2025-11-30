@@ -223,3 +223,46 @@ body {
 #goToMyCalendar:hover {
   opacity: 0.8;
 }
+
+#shareButton {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #00ACCE;
+  color: #FFF;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: lighter;
+  font-family: 'SmartFont', sans-serif;
+}
+
+#shareButton:hover {
+  opacity: 0.8;
+}
+
+#contentTypeLabel {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+#sharedContentTypeLabel {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+#modalContentWrapper {
+  background-color: #FFF;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+#sharedContentWrapper {
+  background-color: #FFF;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}

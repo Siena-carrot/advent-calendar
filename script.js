@@ -49,7 +49,11 @@ function renderCalendar(today, openedDays) {
 
 function openDay(day) {
   const entry = userContent[day - 1];
+  const contentType = (entry.kind == 1 || entry.kind == "1") ? "雑学メモ" : "ネタツイの下書き";
+  
+  document.getElementById("contentTypeLabel").textContent = `${contentType}が入っていたよ！`;
   document.getElementById("modalContent").textContent = entry.contents;
+  document.getElementById("modalContent").style.whiteSpace = "pre-wrap";
   document.getElementById("contentModal").classList.remove("hidden");
 
   if (!openedDays.includes(day)) {
@@ -67,7 +71,6 @@ function openDay(day) {
     const baseUrl = window.location.origin + window.location.pathname;
     const contentId = entry.id || entry[0]; // A列のIDを取得
     const pageUrl = `${baseUrl}?contentId=${contentId}`;
-    const contentType = (entry.type || entry[2]) == 1 ? "雑学メモ" : "ネタツイの下書き";
     const displayContent = entry.contents.length > 77 ? entry.contents.substring(0, 75) + "……" : entry.contents;
     const text = `／\n12月${day}日分のアドベントカレンダーを開けたよ！\n中身は${contentType}でした\n＼\n\n${displayContent}\n\n${pageUrl}`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
@@ -135,7 +138,10 @@ let allData = [];
     // 共有コンテンツモード
     const sharedContent = allData.find(item => (item.id || item[0]) == contentId);
     if (sharedContent) {
+      const sharedContentType = (sharedContent.kind == 1 || sharedContent.kind == "1") ? "雑学メモ" : "ネタツイの下書き";
+      document.getElementById("sharedContentTypeLabel").textContent = `だれかのアドベントカレンダーの中身を見せてもらったら、${sharedContentType}が入っていたよ！`;
       document.getElementById("sharedContentBody").textContent = sharedContent.contents;
+      document.getElementById("sharedContentBody").style.whiteSpace = "pre-wrap";
       document.getElementById("sharedContentModal").classList.remove("hidden");
     }
     

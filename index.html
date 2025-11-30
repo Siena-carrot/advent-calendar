@@ -39,8 +39,11 @@
   <div id="contentModal" class="modal hidden">
     <div class="modal-content">
       <span id="closeModal">&times;</span>
-      <div id="modalContent"></div>
-      <button id="shareButton">Xで共有する</button>
+      <div id="contentTypeLabel"></div>
+      <div id="modalContentWrapper">
+        <div id="modalContent"></div>
+      </div>
+      <button id="shareButton">Twitter（現X）でシェア</button>
     </div>
   </div>
 
@@ -62,8 +65,10 @@
   <div id="sharedContentModal" class="modal hidden">
     <div class="modal-content">
       <span id="closeSharedContent">&times;</span>
-      <h2>共有されたコンテンツ</h2>
-      <div id="sharedContentBody"></div>
+      <div id="sharedContentTypeLabel"></div>
+      <div id="sharedContentWrapper">
+        <div id="sharedContentBody"></div>
+      </div>
       <button id="goToMyCalendar">自分のカレンダーを見る</button>
     </div>
   </div>
