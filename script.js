@@ -65,7 +65,7 @@ function openDay(day) {
 
   document.getElementById("shareButton").onclick = () => {
     const pageUrl = window.location.href;
-    const text = `今日は12月${day}日、アドベントカレンダーを開けました！\n${entry.contents}\n\n${pageUrl}`;
+    const text = `12月${day}日分のアドベントカレンダーを開けました！\n${entry.contents}\n\n${pageUrl}`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
