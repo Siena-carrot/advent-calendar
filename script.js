@@ -93,10 +93,6 @@ document.getElementById("closeHowToPlay").onclick = () => {
   document.getElementById("howToPlayModal").classList.add("hidden");
 };
 
-document.getElementById("closeSharedContent").onclick = () => {
-  document.getElementById("sharedContentModal").classList.add("hidden");
-};
-
 document.getElementById("goToMyCalendar").onclick = () => {
   window.location.href = window.location.origin + window.location.pathname;
 };
@@ -111,12 +107,6 @@ document.getElementById("contentModal").onclick = (e) => {
 document.getElementById("howToPlayModal").onclick = (e) => {
   if (e.target.id === "howToPlayModal") {
     document.getElementById("howToPlayModal").classList.add("hidden");
-  }
-};
-
-document.getElementById("sharedContentModal").onclick = (e) => {
-  if (e.target.id === "sharedContentModal") {
-    document.getElementById("sharedContentModal").classList.add("hidden");
   }
 };
 
