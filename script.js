@@ -132,7 +132,7 @@ let allData = [];
     const sharedContent = allData.find(item => item.id == contentId);
     if (sharedContent) {
       const sharedContentType = (sharedContent.kind == 1 || sharedContent.kind == "1") ? "雑学メモ" : "ネタツイの下書き";
-      document.getElementById("sharedContentTypeLabel").textContent = `だれかのアドベントカレンダーの中身を見せてもらったら、${sharedContentType}が入っていたよ！`;
+      document.getElementById("sharedContentTypeLabel").textContent = `だれかが開けたアドベントカレンダーの中身を見せてもらったら、${sharedContentType}が入っていたよ！`;
       document.getElementById("sharedContentBody").textContent = sharedContent.contents;
       document.getElementById("sharedContentBody").style.whiteSpace = "pre-wrap";
       document.getElementById("sharedContentModal").classList.remove("hidden");
