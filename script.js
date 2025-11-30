@@ -74,7 +74,7 @@ function openDay(day) {
   document.getElementById("shareButton").onclick = () => {
     const baseUrl = window.location.origin + window.location.pathname;
     const pageUrl = `${baseUrl}?contentId=${contentId}`;
-    const displayContent = entry.contents.length > 77 ? entry.contents.substring(0, 75) + "……" : entry.contents;
+    const displayContent = entry.contents.length > 77 ? entry.contents.substring(0, 74) + "　……" : entry.contents;
     const text = `／\n12月${day}日分のアドベントカレンダーを開けたよ！\n中身は${contentType}でした\n＼\n\n${displayContent}\n\n${pageUrl}`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
