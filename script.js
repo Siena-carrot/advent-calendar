@@ -48,7 +48,11 @@ function renderCalendar(today, openedDays) {
 }
 
 function openDay(day) {
-  const entry = userContent[day - 1];
+  const contentId = userContentIds[day - 1];
+  const entry = allData.find(item => item.id == contentId);
+  
+  if (!entry) return;
+  
   const contentType = (entry.kind == 1 || entry.kind == "1") ? "雑学メモ" : "ネタツイの下書き";
   
   document.getElementById("contentTypeLabel").textContent = `${contentType}が入っていたよ！`;
@@ -69,7 +73,6 @@ function openDay(day) {
 
   document.getElementById("shareButton").onclick = () => {
     const baseUrl = window.location.origin + window.location.pathname;
-    const contentId = entry.id || entry[0]; // A列のIDを取得
     const pageUrl = `${baseUrl}?contentId=${contentId}`;
     const displayContent = entry.contents.length > 77 ? entry.contents.substring(0, 75) + "……" : entry.contents;
     const text = `／\n12月${day}日分のアドベントカレンダーを開けたよ！\n中身は${contentType}でした\n＼\n\n${displayContent}\n\n${pageUrl}`;
@@ -117,7 +120,7 @@ document.getElementById("sharedContentModal").onclick = (e) => {
   }
 };
 
-let userContent = [];
+let userContentIds = [];
 let openedDays = JSON.parse(localStorage.getItem("openedDays") || "[]");
 let allData = [];
 
@@ -136,7 +139,7 @@ let allData = [];
   
   if (contentId) {
     // 共有コンテンツモード
-    const sharedContent = allData.find(item => (item.id || item[0]) == contentId);
+    const sharedContent = allData.find(item => item.id == contentId);
     if (sharedContent) {
       const sharedContentType = (sharedContent.kind == 1 || sharedContent.kind == "1") ? "雑学メモ" : "ネタツイの下書き";
       document.getElementById("sharedContentTypeLabel").textContent = `だれかのアドベントカレンダーの中身を見せてもらったら、${sharedContentType}が入っていたよ！`;
@@ -154,12 +157,13 @@ let allData = [];
     return; // 通常のカレンダー表示をスキップ
   }
   
-  // 通常モード
-  if (!localStorage.getItem("userContent") || JSON.parse(localStorage.getItem("userContent")).length < 24) {
+  // 通常モード - IDのみ保存
+  if (!localStorage.getItem("userContentIds") || JSON.parse(localStorage.getItem("userContentIds")).length < 24) {
     const selected = getRandomSubset(allData, 24);
-    localStorage.setItem("userContent", JSON.stringify(selected));
+    const selectedIds = selected.map(item => item.id);
+    localStorage.setItem("userContentIds", JSON.stringify(selectedIds));
   }
-  userContent = JSON.parse(localStorage.getItem("userContent"));
+  userContentIds = JSON.parse(localStorage.getItem("userContentIds"));
   const today = new Date();
   // テスト用: 11月でも機能するように変更 (12月用は === 11)
   const day = today.getMonth() === 10 ? today.getDate() : 0;
