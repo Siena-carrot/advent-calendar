@@ -95,6 +95,25 @@ document.getElementById("goToMyCalendar").onclick = () => {
   window.location.href = window.location.origin + window.location.pathname;
 };
 
+// モーダル背景クリックで閉じる
+document.getElementById("contentModal").onclick = (e) => {
+  if (e.target.id === "contentModal") {
+    document.getElementById("contentModal").classList.add("hidden");
+  }
+};
+
+document.getElementById("howToPlayModal").onclick = (e) => {
+  if (e.target.id === "howToPlayModal") {
+    document.getElementById("howToPlayModal").classList.add("hidden");
+  }
+};
+
+document.getElementById("sharedContentModal").onclick = (e) => {
+  if (e.target.id === "sharedContentModal") {
+    document.getElementById("sharedContentModal").classList.add("hidden");
+  }
+};
+
 let userContent = [];
 let openedDays = JSON.parse(localStorage.getItem("openedDays") || "[]");
 let allData = [];
