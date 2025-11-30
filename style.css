@@ -208,3 +208,20 @@ body {
 .small-text {
   font-size: 0.85rem;
 }
+
+#goToMyCalendar {
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  background-color: var(--DarkBrown);
+  color: var(--LightBrown);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'SmartFont', sans-serif;
+}
+
+#goToMyCalendar:hover {
+  opacity: 0.8;
+}

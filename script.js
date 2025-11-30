@@ -64,7 +64,9 @@ function openDay(day) {
   }
 
   document.getElementById("shareButton").onclick = () => {
-    const pageUrl = window.location.href;
+    const baseUrl = window.location.origin + window.location.pathname;
+    const contentId = entry.id || entry[0]; // A列のIDを取得
+    const pageUrl = `${baseUrl}?contentId=${contentId}`;
     const text = `12月${day}日分のアドベントカレンダーを開けました！\n${entry.contents}\n\n${pageUrl}`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
@@ -83,11 +85,20 @@ document.getElementById("closeHowToPlay").onclick = () => {
   document.getElementById("howToPlayModal").classList.add("hidden");
 };
 
+document.getElementById("closeSharedContent").onclick = () => {
+  document.getElementById("sharedContentModal").classList.add("hidden");
+};
+
+document.getElementById("goToMyCalendar").onclick = () => {
+  window.location.href = window.location.origin + window.location.pathname;
+};
+
 let userContent = [];
 let openedDays = JSON.parse(localStorage.getItem("openedDays") || "[]");
+let allData = [];
 
 (async () => {
-  const allData = await fetchCSVData();
+  allData = await fetchCSVData();
   
   if (allData.length < 24) {
     document.getElementById("splash").classList.add("hidden");
@@ -95,6 +106,28 @@ let openedDays = JSON.parse(localStorage.getItem("openedDays") || "[]");
     return;
   }
   
+  // URLパラメータをチェック
+  const urlParams = new URLSearchParams(window.location.search);
+  const contentId = urlParams.get('contentId');
+  
+  if (contentId) {
+    // 共有コンテンツモード
+    const sharedContent = allData.find(item => (item.id || item[0]) == contentId);
+    if (sharedContent) {
+      document.getElementById("sharedContentBody").textContent = sharedContent.contents;
+      document.getElementById("sharedContentModal").classList.remove("hidden");
+    }
+    
+    const splash = document.getElementById("splash");
+    splash.classList.add("fade-out");
+    setTimeout(() => {
+      splash.classList.add("hidden");
+    }, 500);
+    
+    return; // 通常のカレンダー表示をスキップ
+  }
+  
+  // 通常モード
   if (!localStorage.getItem("userContent") || JSON.parse(localStorage.getItem("userContent")).length < 24) {
     const selected = getRandomSubset(allData, 24);
     localStorage.setItem("userContent", JSON.stringify(selected));
