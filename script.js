@@ -67,7 +67,9 @@ function openDay(day) {
     const baseUrl = window.location.origin + window.location.pathname;
     const contentId = entry.id || entry[0]; // A列のIDを取得
     const pageUrl = `${baseUrl}?contentId=${contentId}`;
-    const text = `12月${day}日分のアドベントカレンダーを開けました！\n${entry.contents}\n\n${pageUrl}`;
+    const contentType = (entry.type || entry[2]) == 1 ? "雑学メモ" : "ネタツイの下書き";
+    const displayContent = entry.contents.length > 77 ? entry.contents.substring(0, 75) + "……" : entry.contents;
+    const text = `／\n12月${day}日分のアドベントカレンダーを開けたよ！\n中身は${contentType}でした\n＼\n\n${displayContent}\n\n${pageUrl}`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
