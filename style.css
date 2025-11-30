@@ -126,7 +126,7 @@ body {
   text-align: left;
 }
 
-#closeModal, #closeHowToPlay {
+#closeModal, #closeHowToPlay, #closeSharedContent {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -282,4 +282,10 @@ body {
 
 .credit a:hover {
   text-decoration: underline;
+}
+
+.shared-description {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
