@@ -190,13 +190,13 @@ body {
 
 .how-to-play-button {
   margin: 0rem 0;
-  padding: 0.35rem 1.4rem;
+  padding: 0.5rem 2rem;
   background-color: transparent;
   color: var(--DarkBrown);
   border: 2px solid var(--DarkBrown);
   border-radius: 0;
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: bold;
   font-family: 'SmartFont', sans-serif;
 }
