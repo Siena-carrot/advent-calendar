@@ -1,0 +1,210 @@
+:root {
+  --DarkBrown: #AC8D60;
+  --LightBrown: #DACCB8;
+  --LightBlack: #494949;
+}
+
+@font-face {
+  font-family: 'Sirivennela';
+  src: url('./assets/fonts/SourceSerif4.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SmartFont';
+  src: url('./assets/fonts/03スマートフォントUI.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'SmartFont', 'Helvetica Neue', sans-serif;
+  background-color: var(--LightBrown);
+  color: var(--LightBlack);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.header-image {
+  width: 110%;
+  height: auto;
+  display: block;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--DarkBrown);
+  padding: 1rem;
+}
+
+.day {
+  aspect-ratio: 1 / 1;
+  background-image: url('./assets/images/card1.jpg');
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sirivennela', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--DarkBrown);
+  position: relative;
+}
+
+.day.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.day.opened {
+  background-image: url('./assets/images/card2.jpg');
+  color: var(--LightBrown);
+}
+
+.day.opened.card-rare {
+  background-image: url('./assets/images/card3.jpg');
+}
+
+.day.opened.card-epic {
+  background-image: url('./assets/images/card4.jpg');
+}
+
+.day.opened.card-legendary {
+  background-image: url('./assets/images/card5.jpg');
+}
+
+.day.opened.card-special {
+  background-image: url('./assets/images/card6.jpg');
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--LightBrown);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  text-align: left;
+}
+
+#closeModal, #closeHowToPlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.modal.hidden {
+  display: none !important;
+}
+
+#modalStars {
+  font-size: 1.2rem;
+  color: gold;
+  margin: 0.5rem 0;
+}
+
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--LightBrown);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-weight: bold;
+  color: var(--LightBlack);
+}
+
+.splash-content div {
+  font-size: 1.7rem;
+  color: #8D7149;
+}
+
+.splash-icon {
+  width: 225px;
+  height: 225px;
+  object-fit: contain;
+}
+
+.splash.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.splash.hidden {
+  display: none;
+}
+
+.how-to-play-button {
+  margin: 0rem 0;
+  padding: 0.5rem 2rem;
+  background-color: var(--DarkBrown);
+  color: var(--LightBrown);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'SmartFont', sans-serif;
+}
+
+.how-to-play-button:hover {
+  opacity: 0.8;
+}
+
+#calendar {
+  width: 100%;
+}
+
+.small-text {
+  font-size: 0.85rem;
+}

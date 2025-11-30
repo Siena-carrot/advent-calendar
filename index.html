@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>アドベントカレンダー 2025</title>
+  
+  <!-- OGP設定 -->
+  <meta property="og:title" content="アドベントカレンダー 2025" />
+  <meta property="og:description" content="毎日開けるアドベントカレンダー🎄" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/" />
+  <meta property="og:image" content="https://your-domain.com/ogp-image.png" />
+  <meta property="og:site_name" content="アドベントカレンダー 2025" />
+  
+  <!-- Twitter Card設定 -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="アドベントカレンダー 2025" />
+  <meta name="twitter:description" content="毎日開けるアドベントカレンダー🎄" />
+  <meta name="twitter:image" content="https://your-domain.com/ogp-image.png" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="splash" class="splash">
+    <div class="splash-content">
+      <img src="./assets/images/icon.png" alt="icon" class="splash-icon">
+      <div>読み込み中……</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="header-section">
+      <img src="./assets/images/header.png" alt="アドベントカレンダーヘッダー" class="header-image">
+      <button id="howToPlayButton" class="how-to-play-button">あそびかた</button>
+    </div>
+    <div id="calendar"></div>
+  </div>
+
+  <div id="contentModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <div id="modalContent"></div>
+      <button id="shareButton">Xで共有する</button>
+    </div>
+  </div>
+
+  <div id="howToPlayModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeHowToPlay">&times;</span>
+      <h2>あそびかた</h2>
+      <p>・日付の書かれた引き出しをタップ・クリックすると開けられます</p>
+      <p>・毎日0時になると新しい引き出しが開けられるようになります</p>
+      <p>・中にはカスのネタツイか雑学が入っています</p>
+      <p>・中身はひとによって異なるので、ぜひTwitterで共有してね！</p>
+      <br>
+      <h3>注意事項</h3>
+      <p class="small-text">・雑学について、なるべく裏どりをするよう心がけておりますが、完全な正確性は保証しかねますのでご了承ください</p>
+      <p class="small-text">・ネタツイには、書きおろしのものとツイート済みのものが混じっています</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
