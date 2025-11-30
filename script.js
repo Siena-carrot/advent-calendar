@@ -155,8 +155,7 @@ let allData = [];
   }
   userContentIds = JSON.parse(localStorage.getItem("userContentIds"));
   const today = new Date();
-  // テスト用: 11月でも機能するように変更 (12月用は === 11)
-  const day = today.getMonth() === 10 ? today.getDate() : 0;
+  const day = today.getMonth() === 11 ? today.getDate() : 0;
   renderCalendar(day, openedDays);
   
   const splash = document.getElementById("splash");
